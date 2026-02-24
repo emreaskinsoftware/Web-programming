@@ -1,42 +1,120 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Genel Sıfırlama ve Değişkenler */
+:root {
+  --primary-color: #2563EB;
+  --primary-dark: #1E3A8A;
+  --error-color: #DC2626;
+  --text-color: #1f2937;
+  --bg-color: #f3f4f6;
+  --border-color: #d1d5db;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body { 
+  font-family: system-ui, -apple-system, sans-serif; 
+  line-height: 1.6; 
+  color: var(--text-color);
+  background-color: var(--bg-color);
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Skip link: Normalde gizli, Tab ile görünür */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--primary-dark);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: bold;
+  transition: top 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.skip-link:focus { 
+  top: 0; 
 }
 
-.card {
-  padding: 2em;
+/* Focus göstergesi -- ASLA kaldırma */
+:focus-visible { 
+  outline: 3px solid var(--primary-color); 
+  outline-offset: 3px; 
 }
 
-.read-the-docs {
-  color: #888;
+/* Form Kartı Stilleri (Önceki HTML'deki fieldset için) */
+fieldset {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  padding: 0 0.5rem;
+}
+
+/* Form Elemanları */
+.form-group { 
+  margin-bottom: 1.25rem; 
+}
+
+label { 
+  display: block; 
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  outline: none; /* Varsayılanı kapatıp özel gölge veriyoruz */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Gönder Butonu */
+button[type="submit"] {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Hata Mesajları */
+.error-msg { 
+  color: var(--error-color); 
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 0.35rem;
+  min-height: 1.2rem; /* Formun zıplamasını engeller */
 }
