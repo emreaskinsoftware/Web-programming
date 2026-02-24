@@ -13,6 +13,7 @@ function App() {
      <p>Ad Soyad: Emre Aşkın</p>
      <p>Ogrenci No: 230541146</p>
      <p>Hobiler: Kitap okumak</p>
+     <p>İletişim: 0123456789</p>
     </div>
      )
     
