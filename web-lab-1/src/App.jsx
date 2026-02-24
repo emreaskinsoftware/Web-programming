@@ -8,20 +8,28 @@ function App() {
 
   return (
     <>
+      <a href="#main-content" class="skip -link">
+        Ana icerige atla
+      </a>
       <header>
-        <nav>
+        <nav aria-label="Ana navigasyon">
           <ul>
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
+            <li><a href="#hakkimda">Hakkimda </a></li>
+            <li><a href="#projeler">Projeler </a></li>
+            <li><a href="#iletisim">Iletisim </a></li>
           </ul>
         </nav>
       </header>
 
-      <main>
+      <main id="main-content">
         <section id="hakkimda">
           <h2>Hakkımda</h2>
           Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.
+          <figure >
+              <img src="profil.jpg"
+                alt="Emre aşkın'ın vesikalik fotografi" />
+              <figcaption > Emre Aşkın </figcaption >
+          </figure >
         </section>
 
         <section id="projeler">
