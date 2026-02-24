@@ -12,6 +12,7 @@ function App() {
      <h2>LAB -1</h2>
      <p>Ad Soyad: Emre Aşkın</p>
      <p>Ogrenci No: 230541146</p>
+     <p>Hobiler: Kitap okumak</p>
     </div>
      )
     
