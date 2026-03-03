@@ -26,12 +26,26 @@ function App() {
         {/* ===== HAKKIMDA BÖLÜMÜ ===== */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
-          
-          <figure>
-            <img src="profil.jpg" alt="Emre Aşkın'ın vesikalik fotografi" />
-            <figcaption>Emre Aşkın</figcaption>
-          </figure>
-          
+          <div className="about-content">
+            <figure>
+              <img src="profil.jpg" alt="Emre Aşkın'ın vesikalik fotografi" />
+              <figcaption>Emre Aşkın</figcaption>
+            </figure>
+            
+            <div>
+              <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
+              <br/>
+              <h3>Kullandığım Teknolojiler</h3>
+              <ul className="skill-tags">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </div>
           <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
           
           <h3>Kullandığım Teknolojiler</h3>
