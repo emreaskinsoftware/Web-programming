@@ -11,7 +11,7 @@ function App() {
       </a>
       
       <header>
-        <h1>Emre Aşkın</h1>
+        <h1 className="site-title">Emre Aşkın</h1> {/* site-title class'ını ekledik */}
         <nav aria-label="Ana navigasyon">
           <ul>
             <li><a href="#hakkimda">Hakkımda</a></li>
@@ -23,7 +23,7 @@ function App() {
 
       <main id="main-content">
         
-        {/* HAKKIMDA BÖLÜMÜ */}
+        {/* ===== HAKKIMDA BÖLÜMÜ ===== */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
           
@@ -35,7 +35,8 @@ function App() {
           <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
           
           <h3>Kullandığım Teknolojiler</h3>
-          <ul class="skill-tags">
+          {/* JSX'te class yerine className kullanıyoruz */}
+          <ul className="skill-tags">
             <li>HTML5</li>
             <li>CSS3</li>
             <li>JavaScript</li>
@@ -45,26 +46,45 @@ function App() {
           </ul>
         </section>
 
-        {/* PROJELERİM BÖLÜMÜ */}
+        {/* ===== PROJELERİM BÖLÜMÜ ===== */}
         <section id="projeler">
           <h2>Projelerim</h2>
           
-          {/* Proje 1 */}
-          <article className="project-card">
-            <h3>BERT ile Smishing Tespiti</h3>
-            <p>SMS üzerinden yapılan oltalama (phishing) saldırılarını tespit etmek için geliştirdiğim Doğal Dil İşleme (NLP) modeli.</p>
-            <p><strong>Teknolojiler:</strong> Python, PyTorch, Transformers, BERT</p>
-          </article>
+          {/* Grid düzeninin çalışması için projeleri bu div içine aldık */}
+          <div className="project-grid">
+            
+            {/* Proje 1 */}
+            <article className="project-card">
+              {/* CSS'te görsele yer verdiğimiz için örnek bir görsel ekledik */}
+              <img src="https://via.placeholder.com/400x200" alt="BERT Projesi" />
+              <h3>BERT ile Smishing Tespiti</h3>
+              <p>SMS üzerinden yapılan oltalama (phishing) saldırılarını tespit etmek için geliştirdiğim Doğal Dil İşleme (NLP) modeli.</p>
+              
+              {/* Proje içi etiketlerin de şık durması için skill-tags kullandık */}
+              <ul className="skill-tags">
+                <li>Python</li>
+                <li>PyTorch</li>
+                <li>BERT</li>
+              </ul>
+            </article>
 
-          {/* Proje 2 */}
-          <article className="project-card">
-            <h3>Kişisel Portföy Web Sitesi</h3>
-            <p>Erişilebilirlik (a11y) kurallarına uygun, modern ve duyarlı (responsive) kişisel web sitem.</p>
-            <p><strong>Teknolojiler:</strong> React, Vite, CSS3, Semantik HTML</p>
-          </article>
+            {/* Proje 2 */}
+            <article className="project-card">
+              <img src="https://via.placeholder.com/400x200" alt="Portföy Projesi" />
+              <h3>Kişisel Portföy Web Sitesi</h3>
+              <p>Erişilebilirlik (a11y) kurallarına uygun, modern ve duyarlı (responsive) kişisel web sitem.</p>
+              
+              <ul className="skill-tags">
+                <li>React</li>
+                <li>CSS3</li>
+                <li>Vite</li>
+              </ul>
+            </article>
+
+          </div>
         </section>
 
-        {/* İLETİŞİM BÖLÜMÜ */}
+        {/* ===== İLETİŞİM BÖLÜMÜ ===== */}
         <section id="iletisim">
           <h2>İletişim</h2>
           <p>Telefon: 123456789</p>
