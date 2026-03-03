@@ -110,3 +110,26 @@ button[type="submit"]:hover {
   margin-top: 0.35rem;
   min-height: 1.2rem; /* Formun zıplamasını engeller */
 }
+/* Navigasyon çubuğu */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobilde dikey yığın */
+@media (max-width: 639px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Header içindeki hizalama: logo sol, nav sağ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
