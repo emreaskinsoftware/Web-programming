@@ -35,11 +35,13 @@ function App() {
           <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
           
           <h3>Kullandığım Teknolojiler</h3>
-          <ul>
-            <li>HTML5, CSS3, JavaScript</li>
-            <li>React & Vite</li>
-            <li>Python (PyTorch, BERT)</li>
-            <li>Git & GitHub</li>
+          <ul class="skill-tags">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Git</li>
           </ul>
         </section>
 
