@@ -1,156 +1,56 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react'
+import Portfolio from './pages/Portfolio'
+import UIKit from './pages/UIKit'
 
 function App() {
-  const [count, setCount] = useState(0) // Şimdilik kullanılmıyor ama ileride lazım olabilir
+  const [currentPage, setCurrentPage] = useState('portfolio');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check initial dark mode preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
 
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Ana icerige atla
-      </a>
-      
-      <header>
-        <h1 className="site-title">Emre Aşkın</h1> {/* site-title class'ını ekledik */}
-        <nav aria-label="Ana navigasyon">
-          <ul>
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-          </ul>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-white dark:bg-gray-950 font-sans transition-colors duration-200">
 
-      <main id="main-content">
-        
-        {/* ===== HAKKIMDA BÖLÜMÜ ===== */}
-        <section id="hakkimda">
-          <h2>Hakkımda</h2>
-          <div className="about-content">
-            <figure>
-              <img src="profil.jpg" alt="Emre Aşkın'ın vesikalik fotografi" />
-              <figcaption>Emre Aşkın</figcaption>
-            </figure>
-            
-            <div>
-              <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
-              <br/>
-              <h3>Kullandığım Teknolojiler</h3>
-              <ul className="skill-tags">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Git</li>
-              </ul>
-            </div>
-          </div>
-          <p>Yazılım Mühendisliği 3. sınıf öğrencisiyim. Araştırma yapmayı ve web uygulamaları geliştirmeyi severim.</p>
-          
-          <h3>Kullandığım Teknolojiler</h3>
-          {/* JSX'te class yerine className kullanıyoruz */}
-          <ul className="skill-tags">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>Git</li>
-          </ul>
-        </section>
+      {/* Dark Mode Toggle Button */}
+      <button
+        onClick={toggleDarkMode}
+        className="fixed bottom-6 right-6 z-50 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-3 rounded-full shadow-xl hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200 dark:border-gray-700"
+        aria-label="Tema degistir"
+      >
+        <span className="dark:hidden text-2xl leading-none flex items-center justify-center w-6 h-6" aria-hidden="true">&#9790;</span>
+        <span className="hidden dark:flex text-2xl leading-none items-center justify-center w-6 h-6 text-yellow-500" aria-hidden="true">&#9728;</span>
+      </button>
 
-        {/* ===== PROJELERİM BÖLÜMÜ ===== */}
-        <section id="projeler">
-          <h2>Projelerim</h2>
-          
-          {/* Grid düzeninin çalışması için projeleri bu div içine aldık */}
-          <div className="project-grid">
-            
-            {/* Proje 1 */}
-            <article className="project-card">
-              {/* CSS'te görsele yer verdiğimiz için örnek bir görsel ekledik */}
-              <img src="https://via.placeholder.com/400x200" alt="BERT Projesi" />
-              <h3>BERT ile Smishing Tespiti</h3>
-              <p>SMS üzerinden yapılan oltalama (phishing) saldırılarını tespit etmek için geliştirdiğim Doğal Dil İşleme (NLP) modeli.</p>
-              
-              {/* Proje içi etiketlerin de şık durması için skill-tags kullandık */}
-              <ul className="skill-tags">
-                <li>Python</li>
-                <li>PyTorch</li>
-                <li>BERT</li>
-              </ul>
-            </article>
+      {/* Navigation Switcher (Floating) */}
+      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex gap-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md p-1.5 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+        <button
+          onClick={() => setCurrentPage('portfolio')}
+          className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${currentPage === 'portfolio' ? 'bg-primary text-white shadow-sm scale-100' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 scale-95 hover:scale-100'}`}
+        >
+          Portfolio
+        </button>
+        <button
+          onClick={() => setCurrentPage('uikit')}
+          className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${currentPage === 'uikit' ? 'bg-primary text-white shadow-sm scale-100' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 scale-95 hover:scale-100'}`}
+        >
+          UI Kit
+        </button>
+      </div>
 
-            {/* Proje 2 */}
-            <article className="project-card">
-              <img src="https://via.placeholder.com/400x200" alt="Portföy Projesi" />
-              <h3>Kişisel Portföy Web Sitesi</h3>
-              <p>Erişilebilirlik (a11y) kurallarına uygun, modern ve duyarlı (responsive) kişisel web sitem.</p>
-              
-              <ul className="skill-tags">
-                <li>React</li>
-                <li>CSS3</li>
-                <li>Vite</li>
-              </ul>
-            </article>
+      {currentPage === 'portfolio' ? <Portfolio /> : <UIKit />}
 
-          </div>
-        </section>
-
-        {/* ===== İLETİŞİM BÖLÜMÜ ===== */}
-        <section id="iletisim">
-          <h2>İletişim</h2>
-          <p>Telefon: 123456789</p>
-          
-          <form action="#" method="POST" noValidate>
-            <fieldset>
-              <legend>Iletisim Formu</legend>
-
-              <div className="form-group">
-                <label htmlFor="name">Ad Soyad:</label>
-                <input type="text" id="name" name="name" required minLength="2" aria-describedby="name-error" />
-                <small id="name-error" className="error-msg" role="alert"></small>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email">E-posta:</label>
-                <input type="email" id="email" name="email" required aria-describedby="email-error" />
-                <small id="email-error" className="error-msg" role="alert"></small>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="subject">Konu:</label>
-                <select id="subject" name="subject" required aria-describedby="subject-error">
-                  <option value="">-- Seciniz --</option>
-                  <option value="is">Is Teklifi</option>
-                  <option value="soru">Soru</option>
-                  <option value="oneri">Oneri</option>
-                </select>
-                <small id="subject-error" className="error-msg" role="alert"></small>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Mesajiniz:</label>
-                <textarea id="message" name="message" rows="5" required minLength="10" aria-describedby="message-error"></textarea>
-                <small id="message-error" className="error-msg" role="alert"></small>
-              </div>
-
-              <button type="submit">Gonder</button>
-              
-            </fieldset>
-          </form>
-        </section>
-      </main>
-
-      <footer>
-        <p>&copy; 2025 Emre Aşkın. Tüm hakları saklıdır.</p>
-        <p>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> | 
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-      </footer>
-    </>
+    </div>
   )
 }
 
