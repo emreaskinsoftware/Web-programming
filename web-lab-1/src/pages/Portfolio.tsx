@@ -173,7 +173,7 @@ export default function Portfolio() {
                                 </label>
                                 <textarea
                                     id="message"
-                                    rows="5"
+                                    rows={5}
                                     required
                                     className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"
                                     placeholder="Mesajınızı buraya yazın..."

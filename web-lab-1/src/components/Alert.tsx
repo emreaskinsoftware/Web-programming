@@ -1,11 +1,21 @@
+import type { ReactNode } from "react";
+
+interface AlertProps {
+    children: ReactNode;
+    variant?: "info" | "success" | "warning" | "error";
+    title?: string;
+    dismissible?: boolean;
+    onDismiss?: () => void;
+}
+
 export default function Alert({
     children,
     variant = "info",
     title,
     dismissible = false,
     onDismiss,
-}) {
-    const variants = {
+}: AlertProps) {
+    const variants: Record<string, string> = {
         info: `bg-blue-50 border-blue-500 text-blue-800 dark:bg-blue-950 dark:text-blue-200`,
         success: `bg-green-50 border-green-500 text-green-800 dark:bg-green-950 dark:text-green-200`,
         warning: `bg-amber-50 border-amber-500 text-amber-800 dark:bg-amber-950 dark:text-amber-200`,
